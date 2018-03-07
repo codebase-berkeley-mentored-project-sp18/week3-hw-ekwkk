@@ -16,11 +16,12 @@ def about(request):
     #################################
     # Question 1
     # REPLACE THE LINE WITH YOUR CODE
-    return render(request, "posts/about.html")
+    return render(request, "posts/about.html", {})
 
 def post_details(request, pk):
     #################################
     # Question 2
     # You should create a new file in the templates directory.
     # REPLACE THE LINE WITH YOUR CODE
-    return HttpResponse("No post details page :(")
+    targetPost = Post.objects.get(pk=pk)
+    return render(request, "posts/detail.html", {"post": targetPost});
